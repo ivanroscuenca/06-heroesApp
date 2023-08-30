@@ -18,7 +18,9 @@ export class HeroPageComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
-
+  goBack(): void {
+    this.router.navigateByUrl('/heroes/list');
+  }
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.heroesService.getHeroById(id)))
